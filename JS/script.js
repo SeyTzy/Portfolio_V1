@@ -43,105 +43,245 @@ if (window.innerWidth > 768) {
   });
 }
 
-/* ========================================
-   Particle Background
-   ======================================== */
-const canvas = document.getElementById('particleCanvas');
-const ctx = canvas.getContext('2d');
+  // Particle Background
+
+const canvas = document.getElementById("particleCanvas");
+const ctx = canvas.getContext("2d");
 
 let particles = [];
 let particleCount;
 
-function resizeCanvas() {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-  particleCount = Math.min(Math.floor((canvas.width * canvas.height) / 12000), 100);
-}
+const mouse = {
+    x: null,
+    y: null,
+    radius: 150
+};
 
-resizeCanvas();
+function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    particleCount = Math.min(
+        Math.floor((canvas.width * canvas.height) / 9000),
+        140
+    );
+
+    createParticles();
+}
 
 class Particle {
-  constructor() {
-    this.reset();
-  }
+    constructor() {
+        this.reset();
+    }
 
-  reset() {
-    this.x = Math.random() * canvas.width;
-    this.y = Math.random() * canvas.height;
-    this.size = Math.random() * 2 + 0.5;
-    this.speedX = (Math.random() - 0.5) * 0.5;
-    this.speedY = (Math.random() - 0.5) * 0.5;
-    this.opacity = Math.random() * 0.5 + 0.1;
-  }
+    reset() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
 
-  update() {
-    this.x += this.speedX;
-    this.y += this.speedY;
+        this.baseSize = Math.random() * 3 + 1;
+        this.size = this.baseSize;
 
-    if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
-    if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
-  }
+        this.speedX = (Math.random() - 0.5) * 0.8;
+        this.speedY = (Math.random() - 0.5) * 0.8;
 
-  draw() {
-    ctx.beginPath();
-    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-    ctx.fillStyle = `rgba(108, 92, 231, ${this.opacity})`;
-    ctx.fill();
-  }
+        this.opacity = Math.random() * 0.5 + 0.3;
+
+        this.pulse = Math.random() * Math.PI * 2;
+    }
+
+    update() {
+
+        this.x += this.speedX;
+        this.y += this.speedY;
+
+        // Bounce
+        if (this.x <= 0 || this.x >= canvas.width)
+            this.speedX *= -1;
+
+        if (this.y <= 0 || this.y >= canvas.height)
+            this.speedY *= -1;
+
+        // Mouse interaction
+        if (mouse.x && mouse.y) {
+
+            const dx = mouse.x - this.x;
+            const dy = mouse.y - this.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance < mouse.radius) {
+
+                const force = (mouse.radius - distance) / mouse.radius;
+
+                this.x -= dx * force * 0.02;
+                this.y -= dy * force * 0.02;
+            }
+        }
+
+        // Pulse effect
+        this.pulse += 0.05;
+        this.size = this.baseSize + Math.sin(this.pulse) * 0.7;
+    }
+
+    draw() {
+
+        // Glow effect
+        ctx.shadowBlur = 15;
+        ctx.shadowColor = "#6c5ce7";
+
+        const gradient = ctx.createRadialGradient(
+            this.x,
+            this.y,
+            0,
+            this.x,
+            this.y,
+            this.size * 4
+        );
+
+        gradient.addColorStop(
+            0,
+            `rgba(108,92,231,${this.opacity})`
+        );
+
+        gradient.addColorStop(
+            1,
+            `rgba(108,92,231,0)`
+        );
+
+        ctx.beginPath();
+        ctx.fillStyle = gradient;
+        ctx.arc(
+            this.x,
+            this.y,
+            this.size * 4,
+            0,
+            Math.PI * 2
+        );
+        ctx.fill();
+
+        ctx.shadowBlur = 0;
+
+        ctx.beginPath();
+        ctx.fillStyle = "#a29bfe";
+        ctx.arc(
+            this.x,
+            this.y,
+            this.size,
+            0,
+            Math.PI * 2
+        );
+        ctx.fill();
+    }
 }
 
-for (let i = 0; i < particleCount; i++) {
-  particles.push(new Particle());
+function createParticles() {
+    particles = [];
+
+    for (let i = 0; i < particleCount; i++) {
+        particles.push(new Particle());
+    }
 }
 
 function connectParticles() {
-  for (let i = 0; i < particles.length; i++) {
-    for (let j = i + 1; j < particles.length; j++) {
-      const dx = particles[i].x - particles[j].x;
-      const dy = particles[i].y - particles[j].y;
-      const distance = Math.sqrt(dx * dx + dy * dy);
 
-      if (distance < 150) {
-        ctx.beginPath();
-        ctx.moveTo(particles[i].x, particles[i].y);
-        ctx.lineTo(particles[j].x, particles[j].y);
-        ctx.strokeStyle = `rgba(108, 92, 231, ${0.1 * (1 - distance / 150)})`;
-        ctx.lineWidth = 0.5;
-        ctx.stroke();
-      }
+    for (let i = 0; i < particles.length; i++) {
+
+        for (let j = i + 1; j < particles.length; j++) {
+
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+
+            const distance = Math.sqrt(
+                dx * dx + dy * dy
+            );
+
+            if (distance < 140) {
+
+                const opacity =
+                    0.25 * (1 - distance / 140);
+
+                const gradient = ctx.createLinearGradient(
+                    particles[i].x,
+                    particles[i].y,
+                    particles[j].x,
+                    particles[j].y
+                );
+
+                gradient.addColorStop(
+                    0,
+                    `rgba(108,92,231,${opacity})`
+                );
+
+                gradient.addColorStop(
+                    1,
+                    `rgba(162,155,254,${opacity})`
+                );
+
+                ctx.beginPath();
+
+                ctx.strokeStyle = gradient;
+                ctx.lineWidth = 1;
+
+                ctx.moveTo(
+                    particles[i].x,
+                    particles[i].y
+                );
+
+                ctx.lineTo(
+                    particles[j].x,
+                    particles[j].y
+                );
+
+                ctx.stroke();
+            }
+        }
     }
-  }
 }
 
-function animateParticles() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+function animate() {
 
-  particles.forEach(particle => {
-    particle.update();
-    particle.draw();
-  });
+    ctx.clearRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
 
-  connectParticles();
-  requestAnimationFrame(animateParticles);
+    particles.forEach(particle => {
+        particle.update();
+        particle.draw();
+    });
+
+    connectParticles();
+
+    requestAnimationFrame(animate);
 }
 
-animateParticles();
-
-window.addEventListener('resize', () => {
-  resizeCanvas();
-  particles = [];
-  for (let i = 0; i < particleCount; i++) {
-    particles.push(new Particle());
-  }
+// Mouse movement
+window.addEventListener("mousemove", e => {
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
 });
 
-/* ========================================
-   Typing Effect
-   ======================================== */
+window.addEventListener("mouseleave", () => {
+    mouse.x = null;
+    mouse.y = null;
+});
+
+window.addEventListener(
+    "resize",
+    resizeCanvas
+);
+
+resizeCanvas();
+animate();
+
+
+  // Typing Effect
+
 const texts = [
   'Frontend Developer',
   'UI/UX Designer',
-  'Graphic Designer',
+  'Networking',
 ];
 
 let textIndex = 0;
@@ -178,9 +318,8 @@ function typeEffect() {
 
 typeEffect();
 
-/* ========================================
-   Navigation
-   ======================================== */
+// Navigation
+
 const navbar = document.getElementById('navbar');
 const navToggle = document.getElementById('navToggle');
 const navMenu = document.getElementById('navMenu');
@@ -222,9 +361,9 @@ function updateActiveLink() {
   });
 }
 
-/* ========================================
-   Theme Toggle
-   ======================================== */
+
+  //  Theme Toggle
+
 const themeToggle = document.getElementById('themeToggle');
 const themeIcon = themeToggle.querySelector('i');
 
@@ -244,9 +383,7 @@ function updateThemeIcon(theme) {
   themeIcon.className = theme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
 }
 
-/* ========================================
-   Scroll to Top
-   ======================================== */
+
 const scrollTop = document.getElementById('scrollTop');
 
 window.addEventListener('scroll', () => {
@@ -257,9 +394,6 @@ scrollTop.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
-/* ========================================
-   Animate on Scroll (Reveal)
-   ======================================== */
 const revealElements = document.querySelectorAll('.reveal');
 
 function checkReveal() {
@@ -278,9 +412,7 @@ function checkReveal() {
 window.addEventListener('scroll', checkReveal);
 window.addEventListener('load', checkReveal);
 
-/* ========================================
-   Skill Progress Bar Animation
-   ======================================== */
+
 function animateSkillBars() {
   const skillProgress = document.querySelectorAll('.skill-progress');
 
@@ -298,9 +430,8 @@ function animateSkillBars() {
 window.addEventListener('scroll', animateSkillBars);
 window.addEventListener('load', animateSkillBars);
 
-/* ========================================
-   Stat Counter Animation
-   ======================================== */
+// Animation
+
 function animateStats() {
   const statNumbers = document.querySelectorAll('.stat-number');
 
@@ -328,9 +459,8 @@ function animateStats() {
 window.addEventListener('scroll', animateStats);
 window.addEventListener('load', animateStats);
 
-/* ========================================
-   Project Filter
-   ======================================== */
+  // Project Filter
+
 const filterBtns = document.querySelectorAll('.filter-btn');
 const projectCards = document.querySelectorAll('.project-card');
 
@@ -354,9 +484,7 @@ filterBtns.forEach(btn => {
   });
 });
 
-/* ========================================
-   Testimonial Carousel
-   ======================================== */
+
 const track = document.getElementById('testimonialTrack');
 const dots = document.querySelectorAll('.dot');
 const prevBtn = document.getElementById('prevTestimonial');

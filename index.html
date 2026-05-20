@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Seyhat - Full Stack Developer</title>
+  <title>DevPortfolio</title>
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -35,7 +35,7 @@
   <!-- Navigation -->
   <nav class="navbar" id="navbar">
     <div class="nav-container">
-      <a href="#home" class="nav-logo">&lt;Seyhat /&gt;</a>
+      <a href="#home" class="nav-logo">&lt;DevPortfolio /&gt;</a>
       <div class="nav-menu" id="navMenu">
         <ul class="nav-list">
           <li><a href="#home" class="nav-link active">Home</a></li>
@@ -44,7 +44,7 @@
           <li><a href="#services" class="nav-link">Services</a></li>
           <li><a href="#projects" class="nav-link">Projects</a></li>
           <li><a href="#experience" class="nav-link">Experience</a></li>
-          <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+          <!-- <li><a href="#testimonials" class="nav-link">Testimonials</a></li> -->
           <li><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
       </div>
@@ -63,7 +63,7 @@
   <section class="hero" id="home">
     <div class="hero-container">
       <div class="hero-content">
-        <span class="hero-badge">I'm a Web Designer</span>
+        <span class="hero-badge">I'm a Full Stack Developer</span>
         <h1 class="hero-title">
           Hi, I'm <span class="gradient-text">Seyhat</span>
         </h1>
@@ -75,7 +75,7 @@
           I craft elegant digital experiences with clean code, modern design, and a passion for building things that matter.
         </p>
         <div class="hero-buttons">
-          <a href="/Image/CV.pdf" class="btn btn-primary">
+          <a href="Image/CV.pdf" class="btn btn-primary" download="Seyhat_CV.pdf">
             <i class="fas fa-download"></i> Download CV
           </a>
           <a href="#contact" class="btn btn-outline">
@@ -152,7 +152,7 @@
               </div>
             </div>
           </div>
-          <a href="/Image/CV.pdf" class="btn btn-primary"><i class="fas fa-download"></i> Download CV</a>
+          <a href="Image/CV.pdf" class="btn btn-primary" download="Seyhat_CV.pdf"><i class="fas fa-download"></i> Download CV</a>
         </div>
         <div class="about-stats reveal">
           <div class="stat-card">
@@ -390,8 +390,8 @@
       </div>
       <div class="project-filters reveal">
         <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="backend">UX/UI</button>
         <button class="filter-btn" data-filter="frontend">Frontend</button>
-        <button class="filter-btn" data-filter="backend">Backend</button>
         <button class="filter-btn" data-filter="fullstack">Full Stack</button>
       <!-- Project -->
       </div>
@@ -414,9 +414,9 @@
         </div>
         <div class="project-card reveal" data-category="frontend">
           <div class="project-image">
-            <img src="/Image/Dashboard.png" alt="Dashboard UI">
+            <img src="/Image/Crud.jpg" alt="Crud Application">
             <div class="project-overlay">
-              <a href="https://analytics-dashboard-19iy4vu42-seytzys-projects.vercel.app/" class="project-link" aria-label="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+              <a href="https://sw-24-product-crud-dp7sn1vz2-seytzys-projects.vercel.app" class="project-link" aria-label="Live Demo"><i class="fas fa-external-link-alt"></i></a>
               <a href="https://github.com/SeyTzy" class="project-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
             </div>
           </div>
@@ -424,71 +424,69 @@
             <h3 class="project-title">Crud Application</h3>
             <p class="project-desc">A simple CRUD (Create, Read, Update, Delete) application with a modern UI.</p>
             <div class="project-tech">
-              <span>React</span><span>D3.js</span><span>TypeScript</span><span>Tailwind</span>
+              <span>Angular</span><span>TypeScript</span><span>CSS</span><span>Firebase</span>
             </div>
           </div>
         </div>
         <div class="project-card reveal" data-category="backend">
           <div class="project-image">
-            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%2322c55e' opacity='0.1'/%3E%3Ctext x='300' y='200' text-anchor='middle' dy='.3em' font-size='24' fill='%2322c55e'%3EAPI Service%3C/text%3E%3C/svg%3E" alt="API Service">
+            <img src="/Image/ABA.jpg" alt="ABA Project">
             <div class="project-overlay">
-              <a href="https://api-service-19iy4vu42-seytzys-projects.vercel.app/" class="project-link" aria-label="Live Demo"><i class="fas fa-external-link-alt"></i></a>
-              <a href="https://github.com/SeyTzy" class="project-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+              <a href="https://www.figma.com/proto/jwToLuXKx6LrPpkP6BbiXX/Final-ABA-Project?node-id=0-1&t=d6ngL1j1BopdqOly-1" class="project-link" aria-label="Live Demo"><i class="fas fa-external-link-alt"></i></a>
             </div>
           </div>
           <div class="project-info">
-            <h3 class="project-title">REST API Service</h3>
-            <p class="project-desc">Scalable microservice architecture with authentication, caching, and comprehensive API documentation.</p>
+            <h3 class="project-title">ABA Clone UX/UI</h3>
+            <p class="project-desc">A UI/UX design clone of the ABA banking application with a modern, user-friendly interface.</p>
             <div class="project-tech">
-              <span>Node.js</span><span>Express</span><span>PostgreSQL</span><span>Redis</span>
+              <span>Figma</span>
             </div>
           </div>
         </div>
-        <div class="project-card reveal" data-category="fullstack">
+        <div class="project-card reveal" data-category="backend">
           <div class="project-image">
-            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%23f59e0b' opacity='0.1'/%3E%3Ctext x='300' y='200' text-anchor='middle' dy='.3em' font-size='24' fill='%23f59e0b'%3ESocial App%3C/text%3E%3C/svg%3E" alt="Social App">
+            <img src="/Image/Zando.jpg" alt="Zando Mobile App">
             <div class="project-overlay">
-              <a href="https://social-connect-19iy4vu42-seytzys-projects.vercel.app/" class="project-link" aria-label="Live Demo"><i class="fas fa-external-link-alt"></i></a>
-              <a href="https://github.com/SeyTzy" class="project-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+              <a href="https://www.figma.com/proto/cpGbCF408gXxQbF0wMUoed/Final_UX-UI?node-id=3343-24&t=jONEaff5W5ku6LxF-1" class="project-link" aria-label="Live Demo"><i class="fas fa-external-link-alt"></i></a>
             </div>
           </div>
           <div class="project-info">
-            <h3 class="project-title">Social Connect</h3>
-            <p class="project-desc">Real-time social platform with messaging, feeds, notifications, and user-generated content.</p>
+            <h3 class="project-title">Zando Mobile App UX/UI</h3>
+            <p class="project-desc">A modern UI/UX design for a mobile social networking application with intuitive user interactions.</p>
             <div class="project-tech">
-              <span>Next.js</span><span>Socket.io</span><span>MongoDB</span><span>AWS</span>
+              <span>Figma</span><span>Adobe XD</span>
             </div>
           </div>
         </div>
         <div class="project-card reveal" data-category="frontend">
           <div class="project-image">
-            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%23ec4899' opacity='0.1'/%3E%3Ctext x='300' y='200' text-anchor='middle' dy='.3em' font-size='24' fill='%23ec4899'%3EPortfolio%3C/text%3E%3C/svg%3E" alt="Portfolio">
+            <img src="/Image/porfolio.png" alt="Portfolio">
             <div class="project-overlay">
-              <a href="https://creative-portfolio-19iy4vu42-seytzys-projects.vercel.app/" class="project-link" aria-label="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+              <a href="https://angular-porfolio-c4sbfcsak-seytzys-projects.vercel.app" class="project-link" aria-label="Live Demo"><i class="fas fa-external-link-alt"></i></a>
               <a href="https://github.com/SeyTzy" class="project-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
             </div>
           </div>
           <div class="project-info">
-            <h3 class="project-title">Creative Portfolio</h3>
+            <h3 class="project-title">Portfolio V2</h3>
             <p class="project-desc">A stunning portfolio website with smooth animations, glassmorphism design, and full responsiveness.</p>
             <div class="project-tech">
-              <span>HTML</span><span>CSS</span><span>JavaScript</span><span>GSAP</span>
+              <span>Angular</span><span>TypeScript</span><span>Sass</span><span>CSS</span>
             </div>
           </div>
         </div>
         <div class="project-card reveal" data-category="fullstack">
           <div class="project-image">
-            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%233b82f6' opacity='0.1'/%3E%3Ctext x='300' y='200' text-anchor='middle' dy='.3em' font-size='24' fill='%233b82f6'%3ELMS Platform%3C/text%3E%3C/svg%3E" alt="LMS Platform">
+            <img src="/Image/LMS.jpg" alt="Application">
             <div class="project-overlay">
               <a href="https://lms-platform-19iy4vu42-seytzys-projects.vercel.app/" class="project-link" aria-label="Live Demo"><i class="fas fa-external-link-alt"></i></a>
               <a href="https://github.com/SeyTzy" class="project-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
             </div>
           </div>
           <div class="project-info">
-            <h3 class="project-title">Learning Management</h3>
+            <h3 class="project-title">Comming Soon</h3>
             <p class="project-desc">Online learning platform with course creation, video streaming, quizzes, and progress tracking.</p>
             <div class="project-tech">
-              <span>React</span><span>Django</span><span>PostgreSQL</span><span>Docker</span>
+              <span>Coming Soon</span>
             </div>
           </div>
         </div>
@@ -501,7 +499,7 @@
     <div class="container">
       <div class="section-header">
         <span class="section-subtitle">My Journey</span>
-        <h2 class="section-title">Experience & Education</h2>
+        <h2 class="section-title">My Education Journey</h2>
         <div class="section-line"></div>
       </div>
       <div class="timeline">
@@ -509,9 +507,11 @@
           <div class="timeline-dot"></div>
           <div class="timeline-date">2024 - Present</div>
           <div class="timeline-content">
-            <h3>Graphic Designer</h3>
-            <h4>Tech Corp</h4>
-            <p>Lead development of microservices architecture, mentored junior developers, and shipped major product features.</p>
+            <h3>Management Information Systems</h3>
+            <h4>SETECT Institute</h4>
+            <p>Studying IT in college has been an interesting and valuable experience for me. During my studies, I have learned many important topics such as programming, database management, networking, web development, and computer systems. These subjects helped me improve my technical knowledge and problem-solving skills.
+I have also worked on different projects and assignments that allowed me to apply what I learned in practical situations. Through these activities, I gained experience in coding, teamwork, and project management. I learned how to analyze problems and find solutions using technology.
+There were challenges during my studies, especially when learning complex programming concepts and completing projects within deadlines. However, these challenges motivated me to practice more and improve my skills.</p>
           </div>
         </div>
         <div class="timeline-item reveal">
@@ -532,15 +532,7 @@
             <p>Created visual designs, mockups, and branding materials for various marketing campaigns and products.</p>
           </div>
         </div>
-        <div class="timeline-item reveal">
-          <div class="timeline-dot"></div>
-          <div class="timeline-date">2024 - 2026</div>
-          <div class="timeline-content">
-            <h3>Computer Science</h3>
-            <h4>University of Technology</h4>
-            <p>Bachelor's Degree in Computer Science with focus on web technologies and software engineering.</p>
-          </div>
-        </div>
+       
         <div class="timeline-item reveal">
           <div class="timeline-dot"></div>
           <div class="timeline-date">2024 - 2026</div>
@@ -657,11 +649,11 @@
             </div>
           </div>
           <div class="contact-social">
-            <a href="#" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
-            <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="https://github.com/SeyTzy" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/thoeurn-seyhat-19123a402/" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://twitter.com/seyhatbadboy" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://instagram.com/seyhatbadboy" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.youtube.com/@SeyTzy-168" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
           </div>
         </div>
         <form class="contact-form reveal" id="contactForm" novalidate>
@@ -697,10 +689,11 @@
           <a href="#home" class="footer-logo">&lt;Seyhat /&gt;</a>
           <p>Building digital experiences that make a difference.</p>
           <div class="footer-social">
-            <a href="#" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
-            <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://github.com/SeyTzy" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/thoeurn-seyhat-19123a402/" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://twitter.com/seyhatbadboy" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://instagram.com/seyhatbadboy" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.youtube.com/@SeyTzy-168" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
           </div>
         </div>
         <div class="footer-links">
@@ -732,7 +725,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2026 Seyhat. All rights reserved. Built with <i class="fas fa-heart"></i> using HTML, CSS & JavaScript</p>
+        <p>&copy; 2026 Seyhat. All rights reserved. Built with using HTML, CSS & JavaScript</p>
       </div>
     </div>
   </footer>

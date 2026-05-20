@@ -133,6 +133,8 @@ input, textarea {
   pointer-events: none;
 }
 
+
+
 /* ========================================
    Loading Screen
    ======================================== */
@@ -1626,7 +1628,7 @@ input, textarea {
     top: var(--nav-height);
     left: 0;
     right: 0;
-    background: var(--bg-glass);
+    background: var(--bg-primary);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border);
