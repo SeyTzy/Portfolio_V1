@@ -49,6 +49,9 @@
         </ul>
       </div>
       <div class="nav-actions">
+        <div class="translate-wrapper">
+          <div id="google_translate_element"></div>
+        </div>
         <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
           <i class="fas fa-moon"></i>
         </button>
@@ -83,17 +86,16 @@
           </a>
         </div>
         <div class="hero-social">
-          <a href="#" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
-          <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-          <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-          <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://github.com/SeyTzy" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/thoeurn-seyhat-19123a402/" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://instagram.com/seyhatbadboy" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
         </div>
       </div>
       <div class="hero-image">
         <div class="hero-image-wrapper">
           <div class="hero-image-ring"></div>
           <div class="hero-image-inner">
-            <img src="/Image/My pf.jpg" alt="Seyhat">
+            <img src="/Image/My Profile.jpg" alt="Seyhat">
           </div>
         </div>
       </div>
@@ -115,8 +117,10 @@
       <div class="about-grid">
         <div class="about-content reveal">
           <p class="about-text">
-            I'm a passionate Full Stack Developer with expertise in building modern web applications. 
-            With a keen eye for design and a love for clean code, I transform ideas into seamless digital experiences.
+            I'm THOEURN Seyhat, a student in Management Information System (MIS) at SETEC Institute with a strong interest in technology and digital creativity. You have skills in several areas including web development, graphic design, UI/UX design, databases, programming, networking, and computer maintenance.
+            You work with technologies such as HTML, CSS, JavaScript, MySQL, MongoDB, Java, and Visual Basic, and you also have experience using design tools like Adobe Photoshop, Illustrator, Figma, and Adobe XD. You have built projects such as CRUD applications and e-commerce systems, showing practical experience in software development.
+            Beyond technical abilities, you also have skills in communication, management, and public relations. You enjoy learning and spending time exploring technology through activities like reading IT magazines, surfing the internet, and listening to music.
+            You are currently building your experience and developing the foundation for a future career in the IT field.
           </p>
           <p class="about-text">
             From frontend aesthetics to backend architecture, I enjoy every aspect of the development process.
@@ -730,6 +734,17 @@ There were challenges during my studies, especially when learning complex progra
     </div>
   </footer>
 
+  <script>
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'en',
+      includedLanguages: 'km,en,zh-CN,ja,ko,th,vi,fr,de,es',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+      autoDisplay: false
+    }, 'google_translate_element');
+  }
+  </script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   <script src="/JS/script.js"></script>
 </body>
 </html>
