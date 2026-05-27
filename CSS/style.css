@@ -1653,6 +1653,7 @@ input, textarea {
   .nav-toggle {
     display: flex;
   }
+  
 
   .about-grid {
     grid-template-columns: 1fr;

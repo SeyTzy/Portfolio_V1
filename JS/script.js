@@ -280,6 +280,7 @@ animate();
 
 const texts = [
   'Frontend Developer',
+  'Backend Developer',
   'UI/UX Designer',
   'Networking',
 ];
