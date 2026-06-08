@@ -1,6 +1,4 @@
-/* ========================================
-   CSS Variables & Theme
-   ======================================== */
+
 :root {
   --primary: #6c5ce7;
   --primary-dark: #5a4bd1;
@@ -52,11 +50,9 @@
   --shadow: 0 8px 32px rgba(108, 92, 231, 0.08);
   --shadow-lg: 0 16px 48px rgba(108, 92, 231, 0.12);
   --shadow-glow: 0 0 30px rgba(108, 92, 231, 0.1);
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* ========================================
-   Reset & Base
-   ======================================== */
 *, *::before, *::after {
   margin: 0;
   padding: 0;
@@ -76,6 +72,10 @@ body {
   overflow-x: hidden;
   transition: background var(--transition-slow), color var(--transition-slow);
   cursor: none;
+  background-image: url(/Image/Lightning\ .gif);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 a {
